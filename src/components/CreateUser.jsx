@@ -21,7 +21,7 @@ const CreateUser = () => {
     e.preventDefault();
 
     axios
-      .post('http://localhost:8800/api/add', user)
+      .post('https://userprofilebackend.cyclic.app/api/add', user)
       .then((res) => {
         setUser({
           title: '',

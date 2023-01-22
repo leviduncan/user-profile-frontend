@@ -9,7 +9,7 @@ const ShowUsers = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8800/api/')
+            .get('https://userprofilebackend.cyclic.app/api/')
             .then((res) => {
                 setUsers(res.data)
             })

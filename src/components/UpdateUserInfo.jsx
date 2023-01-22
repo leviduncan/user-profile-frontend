@@ -53,7 +53,7 @@ const UpdateUserInfo = () => {
     };
 
     axios
-      .put(`http://localhost:8800/api/${id}`, data)
+      .put(`https://userprofilebackend.cyclic.app/api/${id}`, data)
       .then((res) => {
         navigate(`/show-user/${id}`);
       })
