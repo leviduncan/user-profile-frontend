@@ -18,6 +18,10 @@ const UserCard = (props) => {
           </h2>
           <h3>{user.title}</h3>
         </div>
+        <div className="contact">
+          <div className="number">{user.number}</div>
+          <div className="email"><Link to={user.email}>{user.email}</Link></div>
+        </div>
       </div>
     </>
   );
