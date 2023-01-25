@@ -36,6 +36,16 @@ const Title = (props) => {
           </div>
       </div>
       }
+      {page === "details" && 
+        <div className="title">
+          <h2 className='fw-900 d-flex'>
+            <strong>User Information</strong>
+          </h2>
+          <div>
+            <Link to='/' className="btn btn-purple-va"> Show User List</Link>
+          </div>
+      </div>
+      }
     </>
   )
 }

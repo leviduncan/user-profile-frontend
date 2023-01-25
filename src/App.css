@@ -211,7 +211,10 @@
   border-radius: 50px;
 }
 
-.ShowUsers .title, .CreateUser .title, .UpdateUserInfo .title  {
+.ShowUsers .title, 
+.CreateUser .title, 
+.UpdateUserInfo .title,
+.ShowUserDetails .title  {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -250,6 +253,55 @@
   background: #fff;  
   margin-top: -10px;
   margin-bottom: 10px;
+}
+
+.ShowUserDetails .user-card {
+  text-align: left;
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: unset;
+}
+
+.ShowUserDetails .user-card-header {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  width: 100%;
+  height: 150px;
+  padding: 40px;
+  position: relative;
+  text-align: center;
+} 
+
+.ShowUserDetails .user-card-header h2 {
+  text-align: center;
+  width: 100%;
+  color: var(--wht);
+}
+
+.ShowUserDetails .user-card-header img {
+  border-radius: 50%;
+  border: solid 8px #fff;
+  margin-top: 40px;
+}
+
+.ShowUserDetails .user-card-body {
+  margin-top: 40px;
+  padding: 40px;
+  text-align: center;
+} 
+
+.ShowUserDetails .controls {
+  display: flex;
+  width: 100%;
+  margin: 20px;
 }
 
 .card-container {

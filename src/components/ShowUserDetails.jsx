@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Title from './Title'
 
 const ShowUserDetails = (props) => {
     const { id } = useParams()
     const navigate = useNavigate()
-    const[user, setUser] = useState([])
+    const [user, setUser] = useState([])
+    const page = "details"
 
     useEffect(() => {
         axios
@@ -29,45 +31,54 @@ const ShowUserDetails = (props) => {
             })
     }
 
-    const UserItem = (
-        <div>
-            <div>{user.title}</div>
-            <div>{user.fname}</div>
-            <div>{user.lname}</div>
-            <div>{user.email}</div>
-            <div>{user.number}</div>
-            <div>{user.gender}</div>
-            <div>{user.img}</div>
-        </div>
-    )
+    // const UserItem = (
+    //     <div>
+    //         <div>{user.title}</div>
+    //         <div>{user.fname}</div>
+    //         <div>{user.lname}</div>
+    //         <div>{user.email}</div>
+    //         <div>{user.number}</div>
+    //         <div>{user.gender}</div>
+    //         <div>{user.img}</div>
+    //     </div>
+    // )
 
-  return (
-    <>
-        <div className="ShowUserDetails">
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-10 m-auto">
-                        <Link to="/" className='btn btn-outline-warning float-left'>Show User List</Link>
+    return (
+        <>
+            <div className="ShowUserDetails">
+                <div className="container">
+                    <div className="row">
+                        <Title page={page} />
                     </div>
-                    <div className="col-md-8 m-auto">
-                        <h1 className="display-4 text-center">User's Record</h1>
-                        <p className="lead text-center">View User's Info</p>
-                        <hr />
-                    </div>
-                    <div className="col-md-10 m-auto">{UserItem}</div>
-                    <div className="col-md-6 m-auto">
-                        <button className="btn btn-outline-danger btn-lg btn-block" onClick={() => {
-                            handleDelete(user._id)
-                        }}>Delete User</button>
-                    </div>
-                    <div className="col-mb-6 m-auto">
-                        <Link to={`/edit-user/${user._id}`}>Edit User</Link>
+                    <div className="row">
+                        <div className="user-card">
+                            <div className="user-card-header">
+                                <img src={user.img} alt={user.fname} />
+                            </div>
+                            <div className="user-card-body">
+                                <h2>{user.fname} {user.lname}</h2>
+                                <h5>Position: {user.title}</h5>
+                                <div>
+                                    <div>Email: {user.email}</div>
+                                    <div>Phone: {user.number}</div>
+                                    <div>Gender: {user.gender}</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="controls">
+                            <Link to={`/edit-user/${user._id}`} className="btn btn-outline-info btn-lg btn-block">Update User Info</Link>
+                            <div className="col-md-6">
+                                <button className="btn btn-outline-danger btn-lg btn-block" onClick={() => {
+                                    handleDelete(user._id)
+                                }}>Delete User</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </>
-  )
+        </>
+    )
 }
 
 export default ShowUserDetails
