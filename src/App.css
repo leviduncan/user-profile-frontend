@@ -70,7 +70,7 @@
 }
 .aside {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   background: var(--wht);
   width: 160px;
   min-width: 10vw;
