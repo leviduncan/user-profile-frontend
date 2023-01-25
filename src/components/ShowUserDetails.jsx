@@ -20,7 +20,7 @@ const ShowUserDetails = (props) => {
 
     const handleDelete = (id) => {
         axios
-            .delete(`http://localhost:8800/api/${id}`)
+            .delete(`https://userprofilebackend.cyclic.app/api/${id}`)
             .then((res) => {
                 navigate('/')
             })
