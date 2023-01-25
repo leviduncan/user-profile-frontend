@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import Title from './Title';
 
 const UpdateUserInfo = () => {
+  const page = "edit"
   const [user, setUser] = useState({
     title: '',
     fname: '',
@@ -65,6 +67,9 @@ const UpdateUserInfo = () => {
   return (
     <div className='UpdateUserInfo'>
       <div className='container'>
+        <div className="row">
+          <Title page={page} />
+        </div>
         <div className='row'>
           <div className='col-md-8 m-auto'>
             <br />

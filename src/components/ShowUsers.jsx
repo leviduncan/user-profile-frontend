@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import UserCard from './UserCard'
 import Title from './Title'
+import Loader from './Loader'
 
 const ShowUsers = () => {
 
     const [users, setUsers] = useState([])
+    const page = "show"
 
     useEffect(() => {
         axios
@@ -20,7 +22,7 @@ const ShowUsers = () => {
 
     const userList = 
     users.length === 0
-    ? 'there are no users in this list!'
+    ? <Loader />
     : users.map((user, k) => <UserCard user={user} key={k} />)
 
     const userAmt = users.length
@@ -29,7 +31,7 @@ const ShowUsers = () => {
     <div className="ShowUsers">
         <div className="container">
             <div className="row">
-                <Title userAmt={userAmt}/>
+                <Title page={page} userAmt={userAmt}/>
             </div>
             <div className="list">{userList}</div>
         </div>
