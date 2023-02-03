@@ -9,7 +9,7 @@ const Title = (props) => {
       page === "show" && 
       <div className="title">
         <h2 className='fw-900 d-flex'>
-          <strong>People </strong>
+          <strong>Employees </strong>
           <span className='num'>{userAmt}</span>
         </h2>
         <div>

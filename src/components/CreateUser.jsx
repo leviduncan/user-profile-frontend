@@ -46,13 +46,14 @@ const CreateUser = () => {
   return (
     <>
       <div className='CreateUser'>
-        <div className='container'>
+        <div className='container-fluid'>
           <div className='row'>
             <Title page={page} />
           </div>
           <div className="row">
-            <div className="col-md-8 m-auto">
-               
+            <div className="user-card-ui">
+               <div className="user-card-header"></div>
+                <div className="user-card-body">
                 <form noValidate onSubmit={handleSubmit}>
                     <div className="form-group">
                       <EmployeeType handleChange={handleChange}/>
@@ -70,23 +71,17 @@ const CreateUser = () => {
                         <input type='text' placeholder='Phone' name='number' className='form-control' value={user.number} onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                      <div class="form-check">
-                        <label htmlFor="Male" class="form-check-label">
-                          <input type='radio' name='gender' className='form-check-input' id="Male" value="Male" onChange={handleChange} />Male
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label htmlFor="Female" class="form-check-label">
-                          <input type="radio" name='gender' className='form-check-input' id="Female" value="Female" onChange={handleChange} />Female
-                        </label>
-                      </div>
-
+                        <select className='form-control' name='gender' onChange={handleChange} >
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select>
                     </div>
                     <div className="form-group">
                         <input type='text' placeholder='Avatar' name='img' className='form-control' value={user.img} onChange={handleChange} />
                     </div>
                     <input type="submit" className="btn btn-outline-warning btn-block mt-4" />
                 </form>
+                </div>
             </div>
           </div>
         </div>

@@ -46,12 +46,12 @@ const ShowUserDetails = (props) => {
     return (
         <>
             <div className="ShowUserDetails">
-                <div className="container">
+                <div className="container-fluid">
                     <div className="row">
                         <Title page={page} />
                     </div>
-                    <div className="row">
-                        <div className="user-card">
+                    <div className="row ">
+                        <div className="user-card-ui">
                             <div className="user-card-header">
                                 <img src={user.img} alt={user.fname} />
                             </div>

@@ -29,7 +29,7 @@ const ShowUsers = () => {
 
   return (
     <div className="ShowUsers">
-        <div className="container">
+        <div className="container-fluid">
             <div className="row">
                 <Title page={page} userAmt={userAmt}/>
             </div>

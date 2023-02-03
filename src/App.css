@@ -10,11 +10,13 @@
   --wht: #f9fafe;
 }
 
-*, :after, :before {
+*,
+:after,
+:before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition-duration: .1s;
+  transition-duration: 0.1s;
 }
 
 .btn-purple-va {
@@ -45,7 +47,9 @@
   border-color: var(--gray);
 }
 
-*, ::after, ::before {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -55,21 +59,18 @@
   font-weight: 900;
 }
 
-.container-fluid {
-  background-color: var(--wht);
-}
-
 .body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--wht);
   color: var(--purple);
+  background-color: var(--wht);
 }
 
 .main-layout {
   display: flex;
 }
 .aside {
-  display: flex;
+  display: none;
   justify-content: flex-end;
   background: var(--wht);
   width: 160px;
@@ -86,7 +87,6 @@
   border-bottom-left-radius: 60px;
   padding: 10px;
   position: relative;
-
 }
 
 .aside .tab .bubble {
@@ -101,7 +101,7 @@
 }
 
 .main-layout .content {
-  width: 90vw;
+  width: 100vw;
 }
 
 .header {
@@ -150,19 +150,6 @@
   padding: 8px 40px;
 }
 
-.CreateUser {
-  background-color: #fff;
-  height: 100%;
-  width: 100%;
-  min-height: 100vh;
-  min-width: 100px;
-  color: var(--purple);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.101);
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px
-}
-
 .ShowUserDetails {
   background-color: #fff;
   height: 100%;
@@ -173,9 +160,11 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.101);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px
+  border-bottom-left-radius: 10px;
 }
 
+.ShowUsers,
+.CreateUser,
 .UpdateUserInfo {
   background-color: #fff;
   height: 100%;
@@ -184,22 +173,10 @@
   min-width: 100px;
   color: var(--purple);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.101);
+  border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px
-}
-
-.ShowUsers {
-  background-color: #fff;
-  height: 100%;
-  width: 100%;
-  min-height: 100vh;
-  min-width: 100px;
-  color: var(--purple);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.101);
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px
+  border-bottom-left-radius: 10px;
 }
 
 .ShowUsers .num {
@@ -211,14 +188,15 @@
   border-radius: 50px;
 }
 
-.ShowUsers .title, 
-.CreateUser .title, 
+.ShowUsers .title,
+.CreateUser .title,
 .UpdateUserInfo .title,
-.ShowUserDetails .title  {
+.ShowUserDetails .title {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
   padding: 15px;
   margin: 18px 0;
 }
@@ -235,13 +213,13 @@
 }
 
 .user-card {
-  text-align: left;
+  text-align: center;
   background: var(--wht);
   border-radius: 10px;
   padding: 20px 10px;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
@@ -250,12 +228,16 @@
 
 .user-card:hover {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.076);
-  background: #fff;  
+  background: #fff;
   margin-top: -10px;
   margin-bottom: 10px;
 }
 
-.ShowUserDetails .user-card {
+.user-card .card-content {
+  width: 100%;
+}
+
+.user-card-ui {
   text-align: left;
   background: #fff;
   border-radius: 10px;
@@ -265,40 +247,59 @@
   justify-content: flex-start;
   align-items: center;
   margin: 20px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   padding: unset;
 }
 
-.ShowUserDetails .user-card-header {
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+.user-card-header {
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
   width: 100%;
   height: 150px;
   padding: 40px;
   position: relative;
   text-align: center;
-} 
+}
 
-.ShowUserDetails .user-card-header h2 {
+.user-card-header h2 {
   text-align: center;
   width: 100%;
   color: var(--wht);
 }
 
-.ShowUserDetails .user-card-header img {
+.user-card-header img {
   border-radius: 50%;
   border: solid 8px #fff;
   margin-top: 40px;
 }
 
-.ShowUserDetails .user-card-body {
+.user-card-body {
   margin-top: 40px;
   padding: 40px;
   text-align: center;
-} 
+  width: 100%;
+}
 
-.ShowUserDetails .controls {
+.leftRight {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.rcol,
+.lcol {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.controls {
   display: flex;
   width: 100%;
   margin: 20px;
@@ -306,20 +307,24 @@
 
 .card-container {
   margin: 0;
-  border-radius: 80px;
   border: solid 1px rgb(232, 232, 232);
+  border-radius: 60px;
   overflow: hidden;
   width: 90px;
   height: 90px;
-  position: relative;
+  display: flex;
 }
 
 .card-container img {
-  width: 100%;
+  width: 100px;
 }
 
 .desc {
   padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .desc h2 {
@@ -332,25 +337,31 @@
   color: var(--deep-purple);
 }
 
-.desc h3 {
+.desc .h3 {
   color: var(--gray);
   background: var(--light-purple2);
-  font-size: 1em;
-  font-weight: 600;
-  padding: 5px;
+  font-size: 0.8em;
+  font-weight: 700;
+  padding: 5px 10px;
   border-radius: 5em;
   text-align: center;
+  text-transform: uppercase;
+  width: 100%;
 }
 
-.desc .contact .number{
+.desc .contact .number {
   color: var(--gray);
   font-size: 1.2em;
   font-weight: 700;
 }
 
 @keyframes placeholder {
-  0% { background-position: -600px 0 }
-  100% { background-position: 600px 0 }
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
 }
 
 .animated-background {
@@ -365,14 +376,13 @@
   min-height: 30px;
   width: 100%;
   margin: 5px 0 5px 0;
-  border-radius: 3px
+  border-radius: 3px;
 }
 
 .loading .list {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-  
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .loading .list .content-card {
@@ -397,11 +407,41 @@
   margin-right: 10px;
 }
 
+@media (min-width: 768px) {
+  .aside {
+    display: flex;
+  }
+  .main-layout .content {
+    width: 90vw;
+  }
+  .rcol,
+  .lcol {
+    width: 45%;
+  }
+  .ShowUsers,
+  .CreateUser,
+  .UpdateUserInfo {
+    border-top-left-radius: 0;
+  }
+  .ShowUsers .title,
+  .CreateUser .title,
+  .UpdateUserInfo .title,
+  .ShowUserDetails .title {
+    flex-direction: row;
+  }
+  .user-card {
+    flex-direction: column;
+  }
+  .desc {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-@media (min-width: 991px){
+@media (min-width: 991px) {
   .user-card {
     text-align: center;
-    width: 22%;
+    width: 234px;
     flex-direction: column;
     margin-right: 10px;
   }
