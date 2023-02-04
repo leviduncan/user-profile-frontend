@@ -30,7 +30,7 @@ const ShowUsers = () => {
             : users.filter((user) => {
                 if (search === "") {
                     return user
-                } else if (user.fname.toLowerCase().includes(search)) {
+                } else if (user.fname.toLowerCase().includes(search) || user.lname.toLowerCase().includes(search) || user.title.toLowerCase().includes(search)) {
                     return user
                 }
             }).map((user, k) => <UserCard user={user} key={k} />)

@@ -16,7 +16,7 @@ const Title = (props) => {
             <input
               className="search"
               onChange={handleSearch}
-              placeholder="Search..."
+              placeholder="Search by first name, last name or title..."
             />
           </div>
           <div>
