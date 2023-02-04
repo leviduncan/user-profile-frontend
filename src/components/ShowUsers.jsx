@@ -7,7 +7,11 @@ import Loader from './Loader'
 const ShowUsers = () => {
 
     const [users, setUsers] = useState([])
+    const [search, setSearch] = useState('')
     const page = "show"
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+      };
 
     useEffect(() => {
         axios
@@ -20,23 +24,31 @@ const ShowUsers = () => {
             })
     }, [])
 
-    const userList = 
-    users.length === 0
-    ? <Loader />
-    : users.map((user, k) => <UserCard user={user} key={k} />)
+    const userList =
+        users.length === 0
+            ? <Loader />
+            : users.filter((user) => {
+                if (search === "") {
+                    return user
+                } else if (user.fname.toLowerCase().includes(search)) {
+                    return user
+                }
+            }).map((user, k) => <UserCard user={user} key={k} />)
 
     const userAmt = users.length
 
-  return (
-    <div className="ShowUsers">
-        <div className="container-fluid">
-            <div className="row">
-                <Title page={page} userAmt={userAmt}/>
+    return (
+        <div className="ShowUsers">
+            <div className="container-fluid">
+                <div className="row">
+                    <Title page={page} userAmt={userAmt} handleSearch={handleSearch}/>
+                </div>
+                <div className="list">
+                    {userList}
+                </div>
             </div>
-            <div className="list">{userList}</div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default ShowUsers

@@ -188,7 +188,28 @@
   border-radius: 50px;
 }
 
-.ShowUsers .title,
+.ShowUsers .title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 15px;
+  margin: 18px 0;
+}
+
+.ShowUsers .title .center-block {
+  width: 100%;
+}
+
+.ShowUsers .title .search {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: solid 1px #aaa;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+
 .CreateUser .title,
 .UpdateUserInfo .title,
 .ShowUserDetails .title {
@@ -423,12 +444,6 @@
   .UpdateUserInfo {
     border-top-left-radius: 0;
   }
-  .ShowUsers .title,
-  .CreateUser .title,
-  .UpdateUserInfo .title,
-  .ShowUserDetails .title {
-    flex-direction: row;
-  }
   .user-card {
     flex-direction: column;
   }
@@ -452,5 +467,16 @@
 
   .card-container {
     margin: 0 auto;
+  }
+  
+  .ShowUsers .title,
+  .CreateUser .title,
+  .UpdateUserInfo .title,
+  .ShowUserDetails .title {
+    flex-direction: row;
+  }
+
+  .ShowUsers .title .center-block {
+    width: 35vw;
   }
 }

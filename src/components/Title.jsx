@@ -2,21 +2,28 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Title = (props) => {
-  const { userAmt, page } = props
+  const { userAmt, page, handleSearch } = props
   return (
     <>
       {
-      page === "show" && 
-      <div className="title">
-        <h2 className='fw-900 d-flex'>
-          <strong>Employees </strong>
-          <span className='num'>{userAmt}</span>
-        </h2>
-        <div>
-          <Link to='/create-user' className="btn btn-purple-va">+ Add a New Employee</Link>
-        </div>
-      </div>}
-      {page === "create" && 
+        page === "show" &&
+        <div className="title">
+          <h2 className='fw-900 d-flex'>
+            <strong>Employees </strong>
+            <span className='num'>{userAmt}</span>
+          </h2>
+          <div className="center-block">
+            <input
+              className="search"
+              onChange={handleSearch}
+              placeholder="Search..."
+            />
+          </div>
+          <div>
+            <Link to='/create-user' className="btn btn-purple-va">+ Add a New Employee</Link>
+          </div>
+        </div>}
+      {page === "create" &&
         <div className="title">
           <h2 className='fw-900 d-flex'>
             <strong>Create a User</strong>
@@ -24,9 +31,9 @@ const Title = (props) => {
           <div>
             <Link to='/' className="btn btn-purple-va"> Show User List</Link>
           </div>
-      </div>
+        </div>
       }
-      {page === "edit" && 
+      {page === "edit" &&
         <div className="title">
           <h2 className='fw-900 d-flex'>
             <strong>Update User Information</strong>
@@ -34,9 +41,9 @@ const Title = (props) => {
           <div>
             <Link to='/' className="btn btn-purple-va"> Show User List</Link>
           </div>
-      </div>
+        </div>
       }
-      {page === "details" && 
+      {page === "details" &&
         <div className="title">
           <h2 className='fw-900 d-flex'>
             <strong>User Information</strong>
@@ -44,7 +51,7 @@ const Title = (props) => {
           <div>
             <Link to='/' className="btn btn-purple-va"> Show User List</Link>
           </div>
-      </div>
+        </div>
       }
     </>
   )
