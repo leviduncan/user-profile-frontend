@@ -3,11 +3,14 @@ import axios from 'axios'
 import UserCard from './UserCard'
 import Title from './Title'
 import Loader from './Loader'
+import Pagination from './Pagination'
 
 const ShowUsers = () => {
 
     const [users, setUsers] = useState([])
     const [search, setSearch] = useState('')
+    const [currentPage, setCurrentPage] = useState(1)
+    const [usersPerPage] = useState(10)
     const page = "show"
     const handleSearch = (e) => {
         setSearch(e.target.value);
@@ -24,10 +27,14 @@ const ShowUsers = () => {
             })
     }, [])
 
+    const indexOfLastUser = currentPage * usersPerPage
+    const indexOfFirstUser = indexOfLastUser - usersPerPage
+    const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser)
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
     const userList =
         users.length === 0
             ? <Loader />
-            : users.filter((user) => {
+            : currentUsers.filter((user) => {
                 if (search === "") {
                     return user
                 } else if (user.fname.toLowerCase().includes(search) || user.lname.toLowerCase().includes(search) || user.title.toLowerCase().includes(search)) {
@@ -36,6 +43,7 @@ const ShowUsers = () => {
             }).map((user, k) => <UserCard user={user} key={k} />)
 
     const userAmt = users.length
+
 
     return (
         <div className="ShowUsers">
@@ -46,6 +54,11 @@ const ShowUsers = () => {
                 <div className="list">
                     {userList}
                 </div>
+                <Pagination 
+                    usersPerPage={usersPerPage}
+                    totalUsers={userAmt}
+                    paginate={paginate}
+                />
             </div>
         </div>
     )
