@@ -272,12 +272,13 @@
   text-align: left;
   background: #fff;
   border-radius: 10px;
+  max-width: 768px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 20px;
+  margin: 20px auto;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   padding: unset;
@@ -333,7 +334,8 @@
 .controls {
   display: flex;
   width: 100%;
-  margin: 20px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
 .card-container {

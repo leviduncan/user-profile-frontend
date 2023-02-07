@@ -31,18 +31,6 @@ const ShowUserDetails = (props) => {
             })
     }
 
-    // const UserItem = (
-    //     <div>
-    //         <div>{user.title}</div>
-    //         <div>{user.fname}</div>
-    //         <div>{user.lname}</div>
-    //         <div>{user.email}</div>
-    //         <div>{user.number}</div>
-    //         <div>{user.gender}</div>
-    //         <div>{user.img}</div>
-    //     </div>
-    // )
-
     return (
         <>
             <div className="ShowUserDetails">
@@ -65,14 +53,15 @@ const ShowUserDetails = (props) => {
                                 </div>
                             </div>
 
-                        </div>
-                        <div className="controls">
-                            <Link to={`/edit-user/${user._id}`} className="btn btn-outline-info btn-lg btn-block">Update User Info</Link>
-                            <div className="col-md-6">
-                                <button className="btn btn-outline-danger btn-lg btn-block" onClick={() => {
-                                    handleDelete(user._id)
-                                }}>Delete User</button>
+                            <div className="controls">
+                                <Link to={`/edit-user/${user._id}`} className="btn btn-outline-info btn-lg btn-block">Update User Info</Link>
+                                <div className="col-md-6">
+                                    <button className="btn btn-outline-danger btn-lg btn-block" onClick={() => {
+                                        handleDelete(user._id)
+                                    }}>Delete User</button>
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
