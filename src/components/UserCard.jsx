@@ -1,16 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { FaRegEdit } from 'react-icons/fa'
 
 const UserCard = (props) => {
   const user = props.user;
 
   return (
     <>
-      <div className='user-card'>
+      <div className='user-card'> 
+        <Link to={`/show-user/${user._id}`}>
+          <FaRegEdit className="edit-user" />
+        </Link>   
+        
         <div className='card-container'>
           <img src={user.img} alt='user' />
         </div>
         <div className="card-content">
+
         <div className='desc'>
           <h2>
             <Link to={`/show-user/${user._id}`}>

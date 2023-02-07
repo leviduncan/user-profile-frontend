@@ -245,6 +245,7 @@
   align-items: center;
   margin-bottom: 10px;
   margin-right: 0;
+  position: relative;
 }
 
 .user-card:hover {
@@ -254,9 +255,18 @@
   margin-bottom: 10px;
 }
 
+.user-card .edit-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 .user-card .card-content {
   width: 100%;
+  position: relative;
 }
+
+
 
 .user-card-ui {
   text-align: left;
