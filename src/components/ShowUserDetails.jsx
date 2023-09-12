@@ -31,6 +31,12 @@ const ShowUserDetails = (props) => {
             })
     }
 
+    const isUserAdmin = () => {
+        if(user.admin === 'true') {
+            return <div><strong>User Administrator</strong></div>
+        }
+    }
+
     return (
         <>
             <div className="ShowUserDetails">
@@ -50,6 +56,7 @@ const ShowUserDetails = (props) => {
                                     <div>Email: {user.email}</div>
                                     <div>Phone: {user.number}</div>
                                     <div>Gender: {user.gender}</div>
+                                    {isUserAdmin()}
                                 </div>
                             </div>
 

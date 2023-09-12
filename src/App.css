@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
 :root {
   --purple: #15074e;
@@ -8,6 +8,8 @@
   --gray: #5d557c;
   --light-gray: #eaeaea;
   --wht: #f9fafe;
+  --bluish: #4644b4;
+  --purplish: #4B0082;
 }
 
 *,
@@ -19,12 +21,20 @@
   transition-duration: 0.1s;
 }
 
+body {
+  font-family: Poppins, sans-serif;
+}
+.btn {
+  border-radius: 2rem;
+}
+
 .btn-purple-va {
-  font-weight: 600;
+  font-weight: 400;
   color: var(--wht);
   background: var(--deep-purple);
   border-color: var(--deep-purple);
   border-radius: 2rem;
+  padding: 8px 12px;
 }
 
 .btn-purple-va:hover {
@@ -112,15 +122,38 @@
 
 .header-content {
   background-color: var(--purple);
+  background: linear-gradient(149deg, var(--purple) 0%, var(--purplish) 50%, var(--bluish) 100%);
   color: var(--wht);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 20px;
+  border-radius: 3rem;
 }
+
+.header-content a {
+  color: var(--wht);
+}
+.header-content a:hover {
+  color: var(--light-purple);
+  text-decoration: none;
+}
+
 .header-content h3 {
+  text-transform: uppercase;
+  font-size: 22px;
   margin-bottom: unset;
+  display: flex;
+  align-items: center;
+}
+
+.header-content h3 svg {
+  background: var(--light-purple2);
+  border-radius: 50%;
+  padding: 6px;
+  height: 30px;
+  width: 32px;
+  margin-right: 10px;
 }
 .header-content p {
   color: var(--light-purple);
@@ -143,11 +176,13 @@
 }
 
 .right-side .btn-purple {
-  background: var(--deep-purple);
+  background: var(--light-purple);
   text-align: center;
-  border-radius: 10px;
   color: var(--wht);
   padding: 8px 40px;
+}
+.right-side .btn-purple:hover {
+  background: var(--gray);
 }
 
 .ShowUserDetails {
@@ -193,8 +228,14 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  align-items: center;
   padding: 15px;
   margin: 18px 0;
+}
+
+.title h2 {
+  text-transform: uppercase;
+  font-size: 20px;
 }
 
 .ShowUsers .title .center-block {
@@ -205,7 +246,6 @@
   padding: 8px 12px;
   border-radius: 20px;
   border: solid 1px #aaa;
-  margin-bottom: 20px;
   width: 100%;
 }
 
@@ -231,6 +271,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  justify-content: center;
 }
 
 .user-card {
@@ -336,6 +377,17 @@
   width: 100%;
   margin: 20px auto;
   padding: 20px;
+}
+
+.checkbox-layout {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.checkbox-layout .form-control {
+  width: 20px;
+  margin: 5px;
 }
 
 .card-container {
@@ -468,7 +520,8 @@
 @media (min-width: 991px) {
   .user-card {
     text-align: center;
-    width: 234px;
+    width: 25%;
+    max-width: 230px;
     flex-direction: column;
     margin-right: 10px;
   }

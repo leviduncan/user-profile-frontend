@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
 import Title from './Title';
 import EmployeeType from './EmployeeType';
 
 const UpdateUserInfo = () => {
-  const page = "edit"
+  const page = "edit";
+  const { id } = useParams();
+  const navigate = useNavigate();
+
   const [user, setUser] = useState({
     title: '',
     fname: '',
@@ -14,24 +17,14 @@ const UpdateUserInfo = () => {
     number: '',
     gender: '',
     img: '',
+    admin: false
   });
-
-  const { id } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     axios
       .get(`https://userprofilebackend.cyclic.app/api/${id}`)
       .then((res) => {
-        setUser({
-          title: res.data.title,
-          fname: res.data.fname,
-          lname: res.data.lname,
-          email: res.data.email,
-          number: res.data.number,
-          gender: res.data.gender,
-          img: res.data.img
-        });
+        setUser(res.data);
       })
       .catch((err) => {
         console.log('Whoop! Sorry, unable to Update User Info');
@@ -39,24 +32,20 @@ const UpdateUserInfo = () => {
   }, [id]);
 
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    const newValue = type === 'checkbox' ? checked : value;
+
+    setUser((prevState) => ({
+      ...prevState,
+      [name]: newValue
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = {
-      title: user.title,
-      fname: user.fname,
-      lname: user.lname,
-      email: user.email,
-      number: user.number,
-      gender: user.gender,
-      img: user.img
-    };
-
     axios
-      .put(`https://userprofilebackend.cyclic.app/api/${id}`, data)
+      .put(`https://userprofilebackend.cyclic.app/api/${id}`, user)
       .then((res) => {
         navigate(`/show-user/${id}`);
       })
@@ -78,11 +67,22 @@ const UpdateUserInfo = () => {
             </div>
             <div className="user-card-body">
               <form noValidate onSubmit={handleSubmit}>
+                <div className="form-group checkbox-layout">
+                  <div>Admin:</div>
+                  <input
+                    type="checkbox"
+                    placeholder="Admin"
+                    name="admin"
+                    className="form-control"
+                    checked={user.admin === 'true' && 'checked' }
+                    onChange={handleChange}
+                  />
+                </div>
                 <div className="row leftRight">
                   <div className="lcol">
                     <div className='form-group'>
                       <label htmlFor='title'>Title</label>
-                      <EmployeeType handleChange={handleChange} title={user.title}/>
+                      <EmployeeType handleChange={handleChange} title={user.title} />
                     </div>
                     <div className='form-group'>
                       <label htmlFor='fname'>First Name</label>
@@ -118,7 +118,6 @@ const UpdateUserInfo = () => {
                       />
                     </div>
                   </div>
-
                   <div className="rcol">
                     <div className='form-group'>
                       <label htmlFor='img'>Avatar</label>
@@ -154,9 +153,8 @@ const UpdateUserInfo = () => {
                       />
                     </div>
                   </div>
-                </div>        <div className="controls">
-
-        </div>
+                </div>
+                <div className="controls"></div>
                 <button
                   type='submit'
                   className='btn btn-outline-info btn-lg btn-block'
@@ -165,18 +163,13 @@ const UpdateUserInfo = () => {
                 </button>
               </form>
             </div>
-
           </div>
         </div>
-
-
-        <div className='col-md-8 m-auto'>
-
-        </div>
+        <div className='col-md-8 m-auto'></div>
       </div>
     </div>
   );
-}
+};
 
+export default UpdateUserInfo;
 
-export default UpdateUserInfo

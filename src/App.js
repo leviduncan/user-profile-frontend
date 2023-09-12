@@ -6,6 +6,8 @@ import UpdateUserInfo from './components/UpdateUserInfo';
 import ShowUserDetails from './components/ShowUserDetails';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { Register } from './components/Register';
+import Login from './components/Login';
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
         </div>
         <div className="content">
           <Routes>
+            <Route exact path='/login' element={<Login />} />
+            <Route exact path='/register' element={<Register />} />
             <Route exact path='/' element={<ShowUsers />} />
             <Route path='/create-user' element={<CreateUser />} />
             <Route path='/edit-user/:id' element={<UpdateUserInfo />} />

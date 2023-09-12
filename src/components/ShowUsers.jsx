@@ -23,7 +23,7 @@ const ShowUsers = () => {
                 setUsers(res.data)
             })
             .catch((err) => {
-                console.log("Woops! something went wrong while trying to display a list of users!")
+                console.log('Error occurred while fetching user data:', err)
             })
     }, [])
 
@@ -35,12 +35,20 @@ const ShowUsers = () => {
         users.length === 0
             ? <Loader />
             : currentUsers.filter((user) => {
-                if (search === "") {
-                    return user
-                } else if (user.fname.toLowerCase().includes(search) || user.lname.toLowerCase().includes(search) || user.title.toLowerCase().includes(search)) {
-                    return user
+                const searchTerm = search.toLowerCase()
+                if (searchTerm === "") {
+                    return true
+                } else if (
+                    user.fname.toLowerCase().includes(searchTerm) || 
+                    user.lname.toLowerCase().includes(searchTerm) || 
+                    user.title.toLowerCase().includes(searchTerm)
+                ) {
+                    return true
                 }
-            }).map((user, k) => <UserCard user={user} key={k} />)
+                return false
+            }).map((user) => (
+            <UserCard user={user} key={user.id} />
+            ))
 
     const userAmt = users.length
 
