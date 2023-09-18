@@ -46,7 +46,7 @@ const CreateUser = () => {
     setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
 
     if (name === 'gender') {
-      setGender(value);
+      setGender(value)
       setSelectedImageUrl(value)
     }
 
