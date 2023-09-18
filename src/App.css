@@ -23,6 +23,7 @@
 
 body {
   font-family: Poppins, sans-serif;
+  background-color: var(--wht);
 }
 .btn {
   border-radius: 2rem;
@@ -71,13 +72,13 @@ body {
 
 .body {
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--wht);
   color: var(--purple);
   background-color: var(--wht);
-}
+  padding-bottom: 60px;}
 
 .main-layout {
   display: flex;
+  margin-bottom: 60px;
 }
 .aside {
   display: none;

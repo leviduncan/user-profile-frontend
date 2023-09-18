@@ -61,7 +61,7 @@ const ShowUserDetails = () => {
                             </div>
 
                             <div className="controls">
-                                <Link to={`/edit-user/${user._id}`} className="btn btn-outline-info btn-lg btn-block">Update User Info</Link>
+                                <Link to={`/edit-user/${user._id}`} className="btn btn-purple-va btn-lg btn-block">Update Employee Info</Link>
                                 <div className="col-md-6">
                                     <button className="btn btn-outline-danger btn-lg btn-block" onClick={() => {
                                         handleDelete(user._id)

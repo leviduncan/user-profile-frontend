@@ -5,7 +5,6 @@ import CreateUser from './components/CreateUser';
 import UpdateUserInfo from './components/UpdateUserInfo';
 import ShowUserDetails from './components/ShowUserDetails';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import { Register } from './components/Register';
 import Login from './components/Login';
 
@@ -31,7 +30,7 @@ function App() {
           </Routes>
         </div>
       </div>
-      <Footer />
+      
     </Router>
   );
 }

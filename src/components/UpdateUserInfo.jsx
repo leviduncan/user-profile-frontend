@@ -5,7 +5,7 @@ import Title from './Title';
 import EmployeeType from './EmployeeType';
 
 const UpdateUserInfo = () => {
-  
+
   const page = "edit";
   const { id } = useParams();
   const navigate = useNavigate();
@@ -68,7 +68,7 @@ const UpdateUserInfo = () => {
             </div>
             <div className="user-card-body">
               <form noValidate onSubmit={handleSubmit}>
-                <div className="form-group checkbox-layout">
+                {user.admin ? <div className="form-group checkbox-layout">
                   <div>Admin:</div>
                   <input
                     type="checkbox"
@@ -78,7 +78,7 @@ const UpdateUserInfo = () => {
                     checked={user.admin === 'true' && 'checked' }
                     onChange={handleChange}
                   />
-                </div>
+                </div> : ""}
                 <div className="row leftRight">
                   <div className="lcol">
                     <div className='form-group'>
@@ -143,22 +143,14 @@ const UpdateUserInfo = () => {
                       />
                     </div>
                     <div className='form-group'>
-                      <label htmlFor='gender'>Gender</label>
-                      <input
-                        type='text'
-                        placeholder='Gender'
-                        name='gender'
-                        className='form-control'
-                        value={user.gender}
-                        onChange={handleChange}
-                      />
+                      <label htmlFor='gender'>Gender: {user.gender}</label>
                     </div>
                   </div>
                 </div>
                 <div className="controls"></div>
                 <button
                   type='submit'
-                  className='btn btn-outline-info btn-lg btn-block'
+                  className='btn btn-purple-va btn-lg btn-block'
                 >
                   Update User
                 </button>

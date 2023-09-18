@@ -26,20 +26,20 @@ const Title = (props) => {
       {page === "create" &&
         <div className="title">
           <h2 className='fw-900 d-flex'>
-            <strong>Create a User</strong>
+            <strong>Create a New Employee</strong>
           </h2>
           <div>
-            <Link to='/' className="btn btn-purple-va"> Show User List</Link>
+            <Link to='/' className="btn btn-purple-va"> Show Employee List</Link>
           </div>
         </div>
       }
       {page === "edit" &&
         <div className="title">
           <h2 className='fw-900 d-flex'>
-            <strong>Update User Information</strong>
+            <strong>Update Employee Information</strong>
           </h2>
           <div>
-            <Link to='/' className="btn btn-purple-va"> Show User List</Link>
+            <Link to='/' className="btn btn-purple-va"> Show Employee List</Link>
           </div>
         </div>
       }
@@ -49,7 +49,7 @@ const Title = (props) => {
             <strong>User Information</strong>
           </h2>
           <div>
-            <Link to='/' className="btn btn-purple-va"> Show User List</Link>
+            <Link to='/' className="btn btn-purple-va"> Show Employee List</Link>
           </div>
         </div>
       }

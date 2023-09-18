@@ -1,10 +1,11 @@
 import React from 'react'
 
 const EmployeeType = (props) => {
-  const { handleChange } = props
+  const { handleChange, title } = props
   return (
     <>
       <select className='form-control' name='title' onChange={handleChange}>
+        <option value={title}>{title}</option>
         <option value="Marketing-Coordinator">Marketing-Coordinator</option>
         <option value="HR-Manager">HR-Manager</option>
         <option value="HR-Associate">HR-Associate</option>
