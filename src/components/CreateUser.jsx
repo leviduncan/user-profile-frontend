@@ -71,7 +71,7 @@ const CreateUser = () => {
           gender: '',
           img: ''
         });
-
+        console.log(formValues)
         navigate('/');
       })
       .catch((err) => {
