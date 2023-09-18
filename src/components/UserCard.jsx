@@ -27,7 +27,7 @@ const UserCard = (props) => {
         </div>
         <div className="contact">
           <div className="number">{user.number}</div>
-          <div className="email"><Link to={user.email}>{user.email}</Link></div>
+          <div className="email">{user.email}</div>
         </div>
         </div>
       </div>

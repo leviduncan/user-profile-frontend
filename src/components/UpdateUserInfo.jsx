@@ -68,6 +68,7 @@ const UpdateUserInfo = () => {
             </div>
             <div className="user-card-body">
               <form noValidate onSubmit={handleSubmit}>
+                {/* Check Admin Status */}
                 {user.admin ? <div className="form-group checkbox-layout">
                   <div>Admin:</div>
                   <input
@@ -78,7 +79,7 @@ const UpdateUserInfo = () => {
                     checked={user.admin === 'true' && 'checked' }
                     onChange={handleChange}
                   />
-                </div> : ""}
+                </div> : "Not an Admin"}
                 <div className="row leftRight">
                   <div className="lcol">
                     <div className='form-group'>

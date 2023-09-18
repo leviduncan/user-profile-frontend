@@ -250,6 +250,10 @@ body {
   width: 100%;
 }
 
+.ShowUsers .email {
+  font-size: 14px;
+  color: var(--light-purple)
+}
 
 .CreateUser .title,
 .UpdateUserInfo .title,
