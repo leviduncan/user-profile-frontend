@@ -5,6 +5,7 @@ import Title from './Title';
 import EmployeeType from './EmployeeType';
 
 const UpdateUserInfo = () => {
+  
   const page = "edit";
   const { id } = useParams();
   const navigate = useNavigate();

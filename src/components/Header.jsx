@@ -4,7 +4,7 @@ import { BiSolidBellRing } from 'react-icons/bi';
 import { FiSettings } from 'react-icons/fi';
 
 const Header = () => {
-  const iconStyle = { color: "white" }
+  // const iconStyle = { color: "white" }
   return (
     <div className="container-fluid header">
       <div className="header-content">

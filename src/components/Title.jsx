@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Title = (props) => {
   const { userAmt, page, handleSearch } = props
   return (
-    <>
+    <div className="container">
       {
         page === "show" &&
         <div className="title">
@@ -53,7 +53,7 @@ const Title = (props) => {
           </div>
         </div>
       }
-    </>
+    </div>
   )
 }
 

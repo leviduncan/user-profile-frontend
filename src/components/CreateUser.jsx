@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Title from './Title';
@@ -6,6 +6,9 @@ import EmployeeType from './EmployeeType';
 
 const CreateUser = () => {
   const navigate = useNavigate();
+  const [gender, setGender] = useState('men');
+  const [imageUrls, setImageUrls] = useState([]); // Store the list of image URLs
+  const [selectedImageUrl, setSelectedImageUrl] = useState(''); // Store the selected image URL
   const page = 'create';
   const [formValues, setFormValues] = useState({
     admin: '',
@@ -18,9 +21,38 @@ const CreateUser = () => {
     img: ''
   });
 
+  useEffect(() => {
+    // Function to generate image URLs based on gender
+    const generateImageUrls = () => {
+      const baseUrl = 'https://randomuser.me/api/portraits/';
+      const imageList = [];
+
+      for (let i = 1; i <= 99; i++) {
+        const imgUrl = `${baseUrl}${gender}/${i}.jpg`;
+        imageList.push(imgUrl);
+      }
+
+      setImageUrls(imageList);
+      setSelectedImageUrl(imageList[0]); // Set the first image as the default
+
+      
+    };
+
+    generateImageUrls(); // Initialize the image URLs
+  }, [gender]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
+
+    if (name === 'gender') {
+      setGender(value);
+      setSelectedImageUrl(value)
+    }
+
+    if (name === 'img') {
+      setSelectedImageUrl(e.target.value)
+    }
   };
 
   const handleSubmit = (e) => {
@@ -43,7 +75,7 @@ const CreateUser = () => {
         navigate('/');
       })
       .catch((err) => {
-        console.log('Something went wrong. Can not create user!');
+        console.log('Something went wrong. Can not create a user!');
       });
   };
 
@@ -55,10 +87,9 @@ const CreateUser = () => {
         </div>
         <div className="row">
           <div className="user-card-ui">
-            <div className="user-card-header"></div>
             <div className="user-card-body">
               <form noValidate onSubmit={handleSubmit}>
-                <div className="form-group checkbox-layout">
+              <div className="form-group checkbox-layout">
                   <div>Admin: </div>
                   <input
                     type="checkbox"
@@ -108,7 +139,7 @@ const CreateUser = () => {
                     placeholder="Phone"
                     name="number"
                     className="form-control"
-                    value                    ={formValues.number}
+                    value={formValues.number}
                     onChange={handleChange}
                   />
                 </div>
@@ -119,20 +150,31 @@ const CreateUser = () => {
                     onChange={handleChange}
                     value={formValues.gender}
                   >
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="men">Male</option>
+                    <option value="women">Female</option>
                   </select>
                 </div>
                 <div className="form-group">
-                  <input
+                  <select
                     type="text"
                     placeholder="Avatar"
                     name="img"
                     className="form-control"
                     value={formValues.img}
                     onChange={handleChange}
-                  />
+                  >
+                    <option value="">Choose an image</option>
+                    {imageUrls.map((image, index) => (
+                      <option key={index} value={image}>
+                        {image}
+                      </option>
+                    ))}
+                  </select>
                 </div>
+                {/* {imageUrls.map((image, index) => (
+                      <img key={index} src={image}/>
+                    ))} */}
+                <img className="imageUrl" src={selectedImageUrl} alt="Selected Avatar" />
                 <input
                   type="submit"
                   className="btn btn-outline-warning btn-block mt-4"
@@ -147,4 +189,3 @@ const CreateUser = () => {
 };
 
 export default CreateUser;
-

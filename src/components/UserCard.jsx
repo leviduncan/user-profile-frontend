@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaRegEdit } from 'react-icons/fa'
 
 const UserCard = (props) => {
-  const user = props.user;
+  const { user } = props;
 
   return (
     <>

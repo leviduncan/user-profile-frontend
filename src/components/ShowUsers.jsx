@@ -10,7 +10,7 @@ const ShowUsers = () => {
     const [users, setUsers] = useState([])
     const [search, setSearch] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
-    const [usersPerPage] = useState(10)
+    const [usersPerPage] = useState(12)
     const page = "show"
     const handleSearch = (e) => {
         setSearch(e.target.value);
@@ -55,7 +55,7 @@ const ShowUsers = () => {
 
     return (
         <div className="ShowUsers">
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row">
                     <Title page={page} userAmt={userAmt} handleSearch={handleSearch}/>
                 </div>

@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Title from './Title'
 
-const ShowUserDetails = (props) => {
+const ShowUserDetails = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const [user, setUser] = useState([])
