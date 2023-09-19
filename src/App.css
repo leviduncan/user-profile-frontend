@@ -215,6 +215,22 @@ body {
   border-bottom-left-radius: 10px;
 }
 
+.CreateUser .avatar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-items: center;
+  padding: 12px;
+  background: var(--light-purple2);
+  border-radius: 4px;
+}
+
+.CreateUser .avatar img {
+  border-radius: 50%;
+  width: 100px;
+  margin: 10px;
+}
+
 .ShowUsers .num {
   color: var(--light-purple);
   padding: 0 0 0 10px;

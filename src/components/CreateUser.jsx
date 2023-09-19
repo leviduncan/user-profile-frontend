@@ -35,7 +35,7 @@ const CreateUser = () => {
       setImageUrls(imageList);
       setSelectedImageUrl(imageList[0]); // Set the first image as the default
 
-      
+
     };
 
     generateImageUrls(); // Initialize the image URLs
@@ -89,7 +89,7 @@ const CreateUser = () => {
           <div className="user-card-ui">
             <div className="user-card-body">
               <form noValidate onSubmit={handleSubmit}>
-              <div className="form-group checkbox-layout">
+                <div className="form-group checkbox-layout">
                   <div>Admin: </div>
                   <input
                     type="checkbox"
@@ -154,30 +154,29 @@ const CreateUser = () => {
                     <option value="women">Female</option>
                   </select>
                 </div>
-                <div className="form-group">
-                  <select
-                    type="text"
-                    placeholder="Avatar"
-                    name="img"
-                    className="form-control"
-                    value={formValues.img}
-                    onChange={handleChange}
-                  >
-                    <option value="">Choose an image</option>
-                    {imageUrls.map((image, index) => (
-                      <option key={index} value={image}>
-                        {image}
-                      </option>
-                    ))}
-                  </select>
+                <div className="avatar">
+                  <div className="form-group">
+                    <select
+                      type="text"
+                      placeholder="Avatar"
+                      name="img"
+                      className="form-control"
+                      value={formValues.img}
+                      onChange={handleChange}
+                    >
+                      <option value="">Choose an image</option>
+                      {imageUrls.map((image, index) => (
+                        <option key={index} value={image}>
+                          {image}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <img className="imageUrl" src={selectedImageUrl} alt="Selected Avatar" />
                 </div>
-                {/* {imageUrls.map((image, index) => (
-                      <img key={index} src={image}/>
-                    ))} */}
-                <img className="imageUrl" src={selectedImageUrl} alt="Selected Avatar" />
                 <input
                   type="submit"
-                  className="btn btn-outline-warning btn-block mt-4"
+                  className="btn btn-purple-va btn-block mt-4"
                 />
               </form>
             </div>
