@@ -33,9 +33,7 @@ const CreateUser = () => {
       }
 
       setImageUrls(imageList);
-      setSelectedImageUrl(imageList[0]); // Set the first image as the default
-
-      
+      setSelectedImageUrl(imageList[0]); // Set the first image as the default image     
     };
 
     generateImageUrls(); // Initialize the image URLs
