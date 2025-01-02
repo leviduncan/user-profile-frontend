@@ -11,7 +11,7 @@ const ShowUserDetails = () => {
 
     useEffect(() => {
         axios
-            .get(`https://userprofilebackend.cyclic.app/api/${id}`)
+            .get(`https://upabe.darrinduncan.com/api/${id}`)
             .then((res) => {
                 setUser(res.data)
             })
@@ -22,7 +22,7 @@ const ShowUserDetails = () => {
 
     const handleDelete = (id) => {
         axios
-            .delete(`https://userprofilebackend.cyclic.app/api/${id}`)
+            .delete(`https://upabe.darrinduncan.com/api/${id}`)
             .then((res) => {
                 navigate('/')
             })
