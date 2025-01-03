@@ -19,7 +19,7 @@ const Pagination = (props) => {
                 className="page-link"
                 aria-label={`Go to page ${number}`}
               >
-                {number}
+                {number}  
               </button>
             </li>
           ))}
